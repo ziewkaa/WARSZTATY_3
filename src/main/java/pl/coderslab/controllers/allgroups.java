@@ -1,7 +1,6 @@
 package pl.coderslab.controllers;
 
 import pl.coderslab.models.Group;
-import pl.coderslab.models.Solution;
 import pl.coderslab.utils.DbUtil;
 
 import javax.servlet.ServletException;

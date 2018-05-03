@@ -16,9 +16,8 @@ public class allusers extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int groupid = Integer.parseInt(request.getParameter("id"));
         try {
-            User[] users = User.loadAllUsersByGroupId(DbUtil.getConnection(), groupid);
+            User[] users = User.loadAllUsers(DbUtil.getConnection());
             request.setAttribute("users", users);
             getServletContext().getRequestDispatcher("/jsp/allusers.jsp").forward(request, response);
 

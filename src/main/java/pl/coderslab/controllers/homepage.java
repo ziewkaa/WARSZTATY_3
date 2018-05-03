@@ -1,10 +1,27 @@
-@javax.servlet.annotation.WebServlet(name = "homepage")
-public class homepage extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
+package pl.coderslab.controllers;
 
-    }
+import pl.coderslab.models.Solution;
+import pl.coderslab.utils.DbUtil;
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/")
+public class homepage extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            Solution[] solutions = Solution.loadAllSolutions(DbUtil.getConnection(), 5);
+            request.setAttribute("solutions", solutions);
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        } catch (Exception e){
+            e.getStackTrace();
+        }
 
     }
 }
