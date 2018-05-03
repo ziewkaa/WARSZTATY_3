@@ -79,7 +79,8 @@ public class User {
 	static public User[] loadAllUsers(Connection conn) throws SQLException {
 		
 		ArrayList<User> users = new ArrayList<User>();
-		String sql = "SELECT * FROM Users"; PreparedStatement preparedStatement;
+		String sql = "SELECT * FROM Users";
+		PreparedStatement preparedStatement;
 		preparedStatement = conn.prepareStatement(sql);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		while (resultSet.next()) {

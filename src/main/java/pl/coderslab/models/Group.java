@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class Group {
 	
-	protected int id;
-	protected String name;
+	private int id;
+	private String name;
 	
 	public Group (String name) {
 		this.name = name;
