@@ -18,7 +18,7 @@ public class homepage extends HttpServlet {
         try {
             Solution[] solutions = Solution.loadAllSolutions(DbUtil.getConnection(), 5);
             request.setAttribute("solutions", solutions);
-            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/jsp/index.jsp").forward(request, response);
         } catch (Exception e){
             e.getStackTrace();
         }
