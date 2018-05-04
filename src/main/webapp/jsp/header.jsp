@@ -6,7 +6,6 @@
     <style>
         li {
             display: inline-block;
-            margin: 0 auto;
         }
     </style>
 </head>
